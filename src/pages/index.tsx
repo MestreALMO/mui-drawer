@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
+import SwipeableEdgeDrawer from "../components/drawer";
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
 
       <main>
         <Typography variant="h1">DevALMO, YouTube channel</Typography>
+        <SwipeableEdgeDrawer />
       </main>
 
       <footer></footer>
