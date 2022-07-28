@@ -22,16 +22,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "light" ? "#fff" : grey[800],
 }));
 
-const Puller = styled(Box)(({ theme }) => ({
-  width: 30,
-  height: 6,
-  backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
-  borderRadius: 3,
-  position: "absolute",
-  top: 8,
-  left: "calc(50% - 15px)",
-}));
-
 export default function SwipeableEdgeDrawer(props: Props) {
   const { window } = props;
   const [open, setOpen] = React.useState(false);
@@ -80,7 +70,6 @@ export default function SwipeableEdgeDrawer(props: Props) {
             left: 0,
           }}
         >
-          <Puller />
           <Typography sx={{ p: 2, color: "text.secondary" }}>
             51 results
           </Typography>
