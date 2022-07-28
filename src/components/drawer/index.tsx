@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import { grey } from "@mui/material/colors";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -18,14 +17,6 @@ interface Props {
    */
   window?: () => Window;
 }
-
-const Root = styled("div")(({ theme }) => ({
-  height: "100%",
-  backgroundColor:
-    theme.palette.mode === "light"
-      ? grey[100]
-      : theme.palette.background.default,
-}));
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "light" ? "#fff" : grey[800],
@@ -54,8 +45,7 @@ export default function SwipeableEdgeDrawer(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Root>
-      <CssBaseline />
+    <>
       <Global
         styles={{
           ".MuiDrawer-root > .MuiPaper-root": {
@@ -82,7 +72,7 @@ export default function SwipeableEdgeDrawer(props: Props) {
         <StyledBox
           sx={{
             position: "absolute",
-            top: -drawerBleeding,
+            bottom: -drawerBleeding,
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
             visibility: "visible",
@@ -98,11 +88,11 @@ export default function SwipeableEdgeDrawer(props: Props) {
         <StyledBox
           sx={{
             px: 2,
+            py: 2,
             height: "100%",
             overflow: "auto",
           }}
         >
-          test2
           <Skeleton
             variant="rectangular"
             width="100%"
@@ -110,9 +100,8 @@ export default function SwipeableEdgeDrawer(props: Props) {
           >
             test4
           </Skeleton>
-          test5
         </StyledBox>
       </SwipeableDrawer>
-    </Root>
+    </>
   );
 }
